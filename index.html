@@ -1,0 +1,154 @@
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <!-- Icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+  <a class="navbar-brand" href="#"><span>F<span> PROFILE</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <!-- login -->
+    <div class="form-inline my-2 my-lg-0">
+      <div id="login_div" class="main-div">
+        <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" id="email_field" required pattern=".+@nativoe.com" title="Please provide only a Best Startup Ever corporate email address">
+        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" id="password_field">
+        <button class="btn btn-outline-success my-2 my-sm-0" onclick="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="maincontent">
+  <div class="row">
+    <div class="col-8">
+      <div class="card mb-3">
+  <img class="card-img-top" src="assets/img/1.jpg" style="width: 100%; height: 357px;" alt="Card image cap">
+  <div class="card-body">
+    <ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">User 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">User 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">User 3</a>
+  </li>
+</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="assets/img/user.png" style="width: 100%; height: 180px;" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="assets/img/user.png" style="width: 100%; height: 180px;" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="assets/img/user.png" style="width: 100%; height: 180px;" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </div>
+    <div class="col-4">
+      <!-- SIGN UP -->
+      <div id="reg_div" class="main-div">
+        <h3>Join Us</h3>
+        <div class="gaps">
+          <input id="reg_email_field"  class="form-control mr-sm-2" type="email" required placeholder="username@nativoe.com" pattern=".+@nativoe.com" title="Please provide only a Best Startup Ever corporate email address" />
+        </div>
+        <div class="gaps">
+          <input class="form-control mr-sm-2" type="password" placeholder="Password..." id="reg_password_field" />
+        </div>
+        <button class="gaps btn btn-outline-success my-2 my-sm-0" onclick="reg()">REGISTER</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- after login screen -->
+
+  <div class="loggedin-div container" style="margin-top: 150px; text-align: center" id="user_div">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <h3 class="card-title" style="color: #FF0000;">Success Login</h3>
+              <div class="card-text">
+                <p id="user_para">You're currently logged in.</p>
+              </div>
+              <button class="gaps btn btn-outline-success my-2 my-sm-0" onclick="logout()">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" id="foot">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="#"><span>F<span> PROFILE</a>
+              <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link" href="#">FAQs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Terms</a>
+  </li>
+</ul>
+          </div>
+        </nav>
+      </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: 'AIzaSyBUUaByENtH-QWL3w1AIW1rcjXeQo4_aXE',
+      authDomain: 'filmy-profiles.firebaseapp.com',
+      databaseURL: 'https://filmy-profiles.firebaseio.com',
+      projectId: 'filmy-profiles',
+      storageBucket: 'filmy-profiles.appspot.com',
+      messagingSenderId: '82052180042'
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
